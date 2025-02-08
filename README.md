@@ -1,12 +1,12 @@
 Prerequisites:
 - Before running the Playwright tests, install
-- Node.js (LTS version recommended)
+- Node.js
 - npm
 
 Installation:
 - Clone the repository:
-- git clone <your-repo-url>
-- cd <your-repo-name>
+- git clone 'your-repo-url'
+- cd 'your-repo-name'
 
 Install dependencies:
 - npm install
