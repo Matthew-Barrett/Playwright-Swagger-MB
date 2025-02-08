@@ -23,8 +23,10 @@ import Ajv from 'ajv';
       };
 
     const addResponse = await api.addPet(petData);
-    console.log('Raw response:', await addResponse.text());
     const addResponseBody = await addResponse.json();
+    console.log('Raw response:', await addResponse.text());
+    console.log('Pretty JSON Response:', JSON.stringify(addResponseBody, null, 2));
+    
 
     expect(addResponseBody).toMatchObject({
       id: 9091,
@@ -35,10 +37,10 @@ import Ajv from 'ajv';
       status: 'available',
     });
 
-    const getResponse = await api.getPetById(9090);
+    const getResponse = await api.getPetById(9091);
     const getResponseBody = await getResponse.json();
 
-    expect(getResponseBody.id).toBe(9090);
+    expect(getResponseBody.id).toBe(9091);
     expect(getResponseBody.name).toBe('NewDog');
     expect(getResponseBody.status).toBe('available');
 
@@ -83,7 +85,6 @@ import Ajv from 'ajv';
         if (!isValid) {
           console.error('Schema Validation Errors:', validate.errors);
         }
-    
         expect(isValid).toBeTruthy();
 
   });

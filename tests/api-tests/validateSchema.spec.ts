@@ -19,8 +19,8 @@ test.describe('Petstore API Tests with Schema Validation', () => {
   test('Validate JSON schema of GET /pet/{petId}', async () => {
 
     const petData = {
-      id: 9091,
-      name: 'NewDog - UpdateName',
+      id: 999,
+      name: 'VaidateDog',
       category: { id: 1, name: 'Dog' },
       photoUrls: [],
       tags: [{ id: 1, name: 'blonde' }],
