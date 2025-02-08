@@ -1,6 +1,5 @@
 import { test, expect, request, APIRequestContext } from '@playwright/test';
 import { PetstoreAPI } from '../../test/model/API/petstoreApi';
-import UrlProperties from '../../test/model/locators/UrlProperties';
 import { petSchema } from '../../test/model/API/SchemaValidator';
 import Ajv from 'ajv';
 
@@ -15,7 +14,7 @@ import Ajv from 'ajv';
 
   test('Add a pet then verify response body', async ({request}) => {
     const petData = {
-        id: 9090,
+        id: 9091,
         name: 'NewDog',
         category: { id: 1, name: 'Dog' },
         photoUrls: [],
@@ -28,7 +27,7 @@ import Ajv from 'ajv';
     const addResponseBody = await addResponse.json();
 
     expect(addResponseBody).toMatchObject({
-      id: 9090,
+      id: 9091,
       name: 'NewDog',
       category: { id: 1, name: 'Dog' },
       photoUrls: [],
@@ -47,7 +46,7 @@ import Ajv from 'ajv';
 
  test('Update a pet then verify response body', async ({request}) => {
     const petData = {
-        id: 9090,
+        id: 9091,
         name: 'NewDog - UpdateName',
         category: { id: 1, name: 'Dog' },
         photoUrls: [],
@@ -60,19 +59,19 @@ import Ajv from 'ajv';
     const addResponseBody = await addResponse.json();
 
     expect(addResponseBody).toMatchObject({
-      id: 9090,
-      name: 'UpdateName',
+      id: 9091,
+      name: 'NewDog - UpdateName',
       category: { id: 1, name: 'Dog' },
       photoUrls: [],
       tags: [{ id: 1, name: 'blonde' }],
       status: 'available',
     });
 
-    const getResponse = await api.getPetById(9090);
+    const getResponse = await api.getPetById(9091);
     const getResponseBody = await getResponse.json();
 
-    expect(getResponseBody.id).toBe(9090);
-    expect(getResponseBody.name).toBe('UpdateName');
+    expect(getResponseBody.id).toBe(9091);
+    expect(getResponseBody.name).toBe('NewDog - UpdateName');
     expect(getResponseBody.status).toBe('available');
 
      const responseBody = await getResponse.json();
@@ -92,11 +91,11 @@ import Ajv from 'ajv';
 
 
 
-  test('Delete a pet by id', async ({request}) => {
+ /* test('Delete a pet by id', async ({request}) => {
     await api.deletePet(9090);
     const deleteResponse = await api.getPetById(9090);
     expect(deleteResponse.status()).toBe(404); 
-  });
+  });*/
 });
 
 

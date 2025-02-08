@@ -25,5 +25,5 @@ export const petSchema = {
       },
       status: { type: 'string', enum: ['available', 'pending', 'sold'] },
     },
-    required: ['id', 'name', 'status'], // ✅ Ensure required fields exist
+    required: ['id', 'name', 'status'],
   };
