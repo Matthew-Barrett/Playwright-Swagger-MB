@@ -15,6 +15,10 @@ export class PetstoreAPI extends BaseAPI {
     return this.get(`${UrlProperties.API_BASE_URL}/pet/${petId}`);
   }
 
+  async updatePet(petData: object): Promise<APIResponse> {
+    return this.put(`${UrlProperties.API_BASE_URL}/pet`, petData);
+  }
+
   async deletePet(petId: number): Promise<APIResponse> {
     return this.delete(`${UrlProperties.API_BASE_URL}/pet/${petId}`);
   }

@@ -3,7 +3,7 @@ import { LoginPage } from '../../test/model/pages/LoginPage.ts';
 import { InventoryPage } from '../../test/model/pages/InventoryPage.ts';
 import UrlProperties from '../../test/model/locators/UrlProperties.ts';
 
-test('sort items', async ({ page }) => {
+test('sort items and validate sort order', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goto();
     await loginPage.validLogin();

@@ -41,7 +41,7 @@ export class InventoryPage {
 
       }
     
-      async isSortedByPriceDescending(): Promise<boolean> {
+    async isSortedByPriceDescending(): Promise<boolean> {
         const prices = await this.getItemPrices();
         return prices.every((price, index) => index === 0 || price <= prices[index - 1]);
       }

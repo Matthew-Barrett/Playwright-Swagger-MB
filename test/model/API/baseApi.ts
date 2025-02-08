@@ -6,7 +6,7 @@ export class BaseAPI {
 
   constructor(request: APIRequestContext, authToken?: string) {
     this.request = request;
-    this.authToken = authToken || ''; // Default to empty if no token provided
+    this.authToken = authToken || '';
   }
 
   private getHeaders() {
@@ -23,6 +23,14 @@ export class BaseAPI {
   }
 
   async post(endpoint: string, data: object): Promise<APIResponse> {
+    const response = await this.request.post(endpoint, {
+      headers: { 'Content-Type': 'application/json' },
+      data,
+    });
+    return response;
+  }
+
+  async put(endpoint: string, data: object): Promise<APIResponse> {
     const response = await this.request.post(endpoint, {
       headers: { 'Content-Type': 'application/json' },
       data,
