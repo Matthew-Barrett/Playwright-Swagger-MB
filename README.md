@@ -48,5 +48,11 @@ Use the following command to debug a test:
 
 This opens Playwright Inspector, allowing step-by-step debugging.
 
+AI Disclosure:
+- AI use
+- CodeGPT - agent Claude-3.5-Sonnet (VSCode plugin) was used to assist with the API request context. Although this should probably be refactored to be at class level
+- ChatGPT - was used to help with the JSON schema validation (very easily suggested Ajv schema validation - seems to work well
+- some use of GitHub Co-Pilot to fix minor issues
+
 
 
