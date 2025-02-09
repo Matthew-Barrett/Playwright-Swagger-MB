@@ -115,7 +115,7 @@ import Ajv from 'ajv';
       const getResponseBody = await getResponse.json();
   
       expect(getResponseBody.id).toBe(7890);
-      expect(getResponseBody.name).toBe('NewDog');
+      expect(getResponseBody.name).toBe('CreateDeleteDog');
       expect(getResponseBody.status).toBe('available');
 
      await api.deletePet(7890);
