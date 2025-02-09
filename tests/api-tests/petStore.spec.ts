@@ -101,7 +101,7 @@ import Ajv from 'ajv';
         status: 'available',
       };
 
-      const addResponse = await api.updatePet(petData);
+      const addResponse = await api.addPet(petData);
       const addResponseBody = await addResponse.json();
 
       expect(addResponseBody).toMatchObject({
