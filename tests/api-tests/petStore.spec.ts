@@ -47,6 +47,8 @@ import Ajv from 'ajv';
   });
 
  test('Update a pet then verify response body', async ({request}) => {
+
+  // need to put a bit in here where to create a new pet prior to updating.
     const petData = {
         id: 9091,
         name: 'NewDog - UpdateName',
