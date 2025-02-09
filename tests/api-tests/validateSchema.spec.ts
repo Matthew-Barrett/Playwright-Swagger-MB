@@ -20,7 +20,7 @@ test.describe('Petstore API Tests with Schema Validation', () => {
 
     const petData = {
       id: 444,
-      name: 'VaidateDog',
+      name: 'ValidateDog',
       category: { id: 1, name: 'Dog' },
       photoUrls: [],
       tags: [{ id: 1, name: 'blonde' }],
