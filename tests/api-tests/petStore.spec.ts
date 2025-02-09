@@ -89,14 +89,39 @@ import Ajv from 'ajv';
 
   });
 
+  test('create then delete a pet', async ({request}) => {
+    const petData = {
+        id: 7890,
+        name: 'CreateDeleteDog',
+        category: { id: 1, name: 'Dog' },
+        photoUrls: [],
+        tags: [{ id: 1, name: 'blonde' }],
+        status: 'available',
+      };
 
+      const addResponse = await api.updatePet(petData);
+      const addResponseBody = await addResponse.json();
 
+      expect(addResponseBody).toMatchObject({
+        id: 7890,
+        name: 'CreateDeleteDog',
+        category: { id: 1, name: 'Dog' },
+        photoUrls: [],
+        tags: [{ id: 1, name: 'blonde' }],
+        status: 'available',
+      });
 
- /* test('Delete a pet by id', async ({request}) => {
-    await api.deletePet(9090);
-    const deleteResponse = await api.getPetById(9090);
-    expect(deleteResponse.status()).toBe(404); 
-  });*/
+      const getResponse = await api.getPetById(7890);
+      const getResponseBody = await getResponse.json();
+  
+      expect(getResponseBody.id).toBe(7890);
+      expect(getResponseBody.name).toBe('NewDog');
+      expect(getResponseBody.status).toBe('available');
+
+     await api.deletePet(7890);
+     const deleteResponse = await api.getPetById(7890);
+     expect(deleteResponse.status()).toBe(404); 
+  });
 });
 
 

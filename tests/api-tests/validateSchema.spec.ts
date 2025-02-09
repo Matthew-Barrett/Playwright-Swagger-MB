@@ -19,7 +19,7 @@ test.describe('Petstore API Tests with Schema Validation', () => {
   test('Validate JSON schema of GET /pet/{petId}', async () => {
 
     const petData = {
-      id: 999,
+      id: 444,
       name: 'VaidateDog',
       category: { id: 1, name: 'Dog' },
       photoUrls: [],
@@ -28,7 +28,7 @@ test.describe('Petstore API Tests with Schema Validation', () => {
     };
     await api.addPet(petData);
 
-    const getResponse = await api.getPetById(9090);
+    const getResponse = await api.getPetById(444);
     expect(getResponse.status()).toBe(200);
 
     const responseBody = await getResponse.json();
